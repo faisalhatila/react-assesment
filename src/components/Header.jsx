@@ -8,9 +8,9 @@ import UserAvatar from '../assets/img/User1Avatar.svg';
 import ThemedText from './ui-elements/ThemedText';
 import ThemedIcon from './ui-elements/ThemedIcon';
 
-const Header = () => {
+const Header = ({ isHamburgerToggled, handleToggle }) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const [isHamburgerToggled, setHamburgerToggled] = useState(false);
+  //   const [isHamburgerToggled, setHamburgerToggled] = useState(false);
 
   const dropdownRef = useRef(null);
 
@@ -18,9 +18,9 @@ const Header = () => {
     setDropdownOpen((ps) => !ps);
   };
 
-  const handleHamburgerClick = () => {
-    setHamburgerToggled((prev) => !prev);
-  };
+  //   const handleHamburgerClick = () => {
+  //     setHamburgerToggled((prev) => !prev);
+  //   };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -35,7 +35,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="bg-darkprimary border-b-[2px] border-b-border text-white p-[20px] md:px-[40px] md:py-[20px] flex items-center fixed w-[100%]">
+    <header className="bg-darkprimary border-b-[2px] border-b-border text-white p-[20px] flex items-center fixed w-[100%]">
       <div
         className={`transition-all duration-300 ease-in-out ${
           isHamburgerToggled ? 'w-[80px]' : 'w-[200px]'
@@ -53,7 +53,7 @@ const Header = () => {
             Portal
           </ThemedText>
         </div>
-        <div className="cursor-pointer" onClick={handleHamburgerClick}>
+        <div className="cursor-pointer" onClick={handleToggle}>
           <ThemedIcon Icon={GiHamburgerMenu} className />
         </div>
       </div>

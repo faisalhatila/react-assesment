@@ -65,15 +65,12 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        {/* Public Routes */}
         <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
         <Route path="/signup" element={<PublicRoute><Signup /></PublicRoute>} />
 
-        {/* Private Routes */}
         <Route path="/" element={<PrivateRoute><ProtectedLayout /></PrivateRoute>}>
           <Route path="" element={<Dashboard />} />
           <Route path="profile" element={<Profile />} />
-          {/* Add more protected routes here */}
         </Route>
       </Routes>
     </Router>
