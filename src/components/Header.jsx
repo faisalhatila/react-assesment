@@ -82,25 +82,34 @@ const Header = ({ isHamburgerToggled, handleToggle }) => {
             onClick={handleAvatarClick}
           >
             <img src={UserAvatar} />
-          </div>
-          <div
-            className={`absolute overflow-hidden top-[70px] right-[10px] mt-2 w-48 bg-white dark:bg-darkprimary border border-border rounded-lg shadow-lg transition-all duration-300 ease-in-out ${
-              isDropdownOpen
-                ? 'opacity-100 transform scale-100'
-                : 'opacity-0 transform scale-95 pointer-events-none'
-            }`}
-          >
-            <ul>
-              <li className="px-4 py-2 bg-darkprimary text-white hover:bg-white hover:text-darkprimary cursor-pointer">
-                Profile
-              </li>
-              <li className="px-4 py-2 bg-darkprimary text-white hover:bg-white hover:text-darkprimary cursor-pointer">
-                Settings
-              </li>
-              <li className="px-4 py-2 bg-darkprimary text-white hover:bg-white hover:text-darkprimary cursor-pointer">
-                Logout
-              </li>
-            </ul>
+            <div
+              className={`absolute overflow-hidden top-[70px] right-[10px] mt-2 w-48 bg-white dark:bg-darkprimary border border-border rounded-lg shadow-lg transition-all duration-300 ease-in-out ${
+                isDropdownOpen
+                  ? 'opacity-100 transform scale-100'
+                  : 'opacity-0 transform scale-95 pointer-events-none'
+              }`}
+            >
+              <ul>
+                <li
+                  onClick={() => console.log('Profile')}
+                  className="px-4 py-2 bg-darkprimary text-white hover:bg-white hover:text-darkprimary cursor-pointer"
+                >
+                  Profile
+                </li>
+                <li
+                  onClick={() => console.log('Settings')}
+                  className="px-4 py-2 bg-darkprimary text-white hover:bg-white hover:text-darkprimary cursor-pointer"
+                >
+                  Settings
+                </li>
+                <li
+                  onClick={() => console.log('Logout')}
+                  className="px-4 py-2 bg-darkprimary text-white hover:bg-white hover:text-darkprimary cursor-pointer"
+                >
+                  Logout
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
