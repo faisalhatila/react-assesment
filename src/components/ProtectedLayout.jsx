@@ -20,10 +20,9 @@ const ProtectedLayout = () => {
           isHamburgerToggled={isHamburgerToggled}
           handleToggle={handleHamburgerClick}
         />
-        <main className="flex-grow p-4">
-          <Outlet />
+        <main className="flex-grow">
+          <Outlet context={{ isHamburgerToggled }} />
         </main>
-        <Footer />
       </div>
     </div>
   );
