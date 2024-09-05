@@ -3,11 +3,14 @@ import React from 'react';
 const Dashboard = () => {
   return (
     <div
-      style={{
-        minHeight: '200vh',
-      }}
+      className="bg-primary text-white"
+      style={
+        {
+          // minHeight: '100%',
+        }
+      }
     >
-      Dashboard
+      {/* Dashboard */}
     </div>
   );
 };
