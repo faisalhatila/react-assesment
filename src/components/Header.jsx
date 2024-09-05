@@ -68,7 +68,7 @@ const Header = ({ isHamburgerToggled, handleToggle }) => {
           <div className="bg-border w-[312px] rounded-[28px] px-[16px] py-[10px] flex items-center">
             <ThemedIcon Icon={CiSearch} size={18} />
             <input
-              className="bg-transparent ml-2 w-[100%] dark:text-white text-darkprimary outline-none font-urbanist"
+              className="bg-transparent ml-2 w-[100%] text-white  outline-none font-urbanist"
               placeholder="Search Student"
             />
           </div>
