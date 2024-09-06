@@ -85,20 +85,28 @@ const Sidebar = ({ isHamburgerToggled, handleToggle }) => {
     children?.some((child) => location.pathname === child.route);
 
   // Adjust width with transition based on isHamburgerToggled
-  const sidebarWidth = isHamburgerToggled ? 'w-[80px]' : 'w-[225px]';
+  const sidebarWidth = isHamburgerToggled
+    ? 'w-[0px] md:w-[80px]'
+    : 'w-screen md:w-[225px]';
   const textVisibility = isHamburgerToggled ? 'opacity-0' : 'opacity-100'; // Hide text when collapsed
   // console.log({ location });
   return (
     <aside
-      className={`${sidebarWidth} min-h-[100vh] fixed bg-darkprimary text-white pt-[20px] pr-[20px] mt-[96px] transition-all duration-300 ease-in-out border-r-[2px] border-r-border`}
+      className={`${sidebarWidth} min-h-[100vh] fixed bg-darkprimary text-white pt-[20px] ${
+        !isHamburgerToggled && 'pr-[20px]'
+      } md:pr-[20px] mt-[96px] transition-all duration-300 ease-in-out border-r-[2px] border-r-border z-10`}
     >
       {sidebarItems.map(
         ({ id, label, Icon, route, children, parent }, index) => (
           <div className="flex flex-col mb-[20px]" key={index}>
             <div
-              className={`flex items-center justify-between pr-[10px] py-[7px] px-[20px] rounded-r-[20px] cursor-pointer ${
-                isRouteActive(route, children && parent) ? 'bg-secondary' : ''
-              } ${isChildRouteActive(children) ? 'text-white' : ''}`}
+              className={`md:flex items-center justify-between pr-[10px] py-[7px] px-[20px] rounded-r-[20px] cursor-pointer ${
+                isRouteActive(route, children && parent)
+                  ? `${!isHamburgerToggled && 'bg-secondary'}`
+                  : ''
+              } ${isChildRouteActive(children) ? 'text-white' : ''} ${
+                !isHamburgerToggled ? 'flex' : 'hidden'
+              }`}
               onClick={() => {
                 if (children && isHamburgerToggled) {
                   // Call handleToggle if isHamburgerToggled is true before toggling the item

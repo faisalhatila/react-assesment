@@ -119,12 +119,14 @@ const Dashboard = () => {
     <div
       style={{
         width: isHamburgerToggled
-          ? 'calc(100vw - 95px)'
-          : 'calc(100vw - 240px)',
+          ? // ? 'calc(100vw - 95px)'
+            // : 'calc(100vw - 240px)',
+            'calc(100vw)'
+          : 'calc(100vw)',
         minHeight: 'calc(100vh - 50px)',
       }}
       className={`transition-all duration-300 ease-in-out bg-darkprimary p-5 ${
-        isHamburgerToggled ? 'ml-[80px]' : 'ml-[225px]'
+        isHamburgerToggled ? 'md:ml-[80px]' : 'md:ml-[225px]'
       }  mt-[96px] text-white`}
     >
       <ToastContainer id="myContainer" />

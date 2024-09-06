@@ -57,8 +57,8 @@ const Header = ({ isHamburgerToggled, handleToggle }) => {
           <ThemedText
             className={`font-urbanist font-bold text-[18px] ml-2 transition-all duration-300 ease-in-out ${
               isHamburgerToggled
-                ? 'opacity-0 scale-95 hidden'
-                : 'opacity-100 scale-100'
+                ? 'md:opacity-0 md:scale-95 md:hidden'
+                : 'md:opacity-100 md:scale-100'
             }`}
           >
             Portal
