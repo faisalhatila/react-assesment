@@ -46,11 +46,11 @@ const Header = ({ isHamburgerToggled, handleToggle }) => {
   }, []);
 
   return (
-    <header className="bg-darkprimary border-b-[2px] border-b-border text-white p-[20px] flex items-center fixed w-[100%] h-[96px] z-50">
+    <header className="bg-darkprimary border-b-[2px] border-b-border text-white p-[20px] flex items-center fixed w-screen md:w-[100%] h-[96px] z-50">
       <div
         className={`transition-all duration-300 ease-in-out ${
-          isHamburgerToggled ? 'w-[80px]' : 'w-[200px]'
-        } flex items-center justify-between `}
+          isHamburgerToggled ? 'md:w-[80px]' : 'md:w-[200px]'
+        } flex items-center justify-between w-[100%]`}
       >
         <div className="flex items-center">
           <img src={Logo} alt="Logo" />
@@ -68,7 +68,7 @@ const Header = ({ isHamburgerToggled, handleToggle }) => {
           <ThemedIcon Icon={GiHamburgerMenu} className />
         </div>
       </div>
-      <div className="flex-1 flex items-center justify-between pl-[20px]">
+      <div className="hidden md:flex flex-1 items-center justify-between pl-[20px]">
         <div className="flex items-center">
           <ThemedIcon Icon={GiMagicPortal} />
           <ThemedText className="font-urbanist font-bold text-[18px] ml-2">
