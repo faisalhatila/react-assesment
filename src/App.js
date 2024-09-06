@@ -56,6 +56,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './pages/public/Login';
 import Signup from './pages/public/Signup';
 import Dashboard from './pages/private/Dashboard';
+import UnderConstruction from './pages/private/UnderConstruction';
 import Profile from './pages/private/Profile';
 import ProtectedLayout from './components/ProtectedLayout';
 import PrivateRoute from './routes/PrivateRoute';
@@ -73,7 +74,12 @@ const App = () => {
 
           <Route path="/" element={<PrivateRoute><ProtectedLayout /></PrivateRoute>}>
             <Route path="" element={<Dashboard />} />
-            <Route path="profile" element={<Profile />} />
+            <Route path="/students/manage" element={<UnderConstruction />} />
+            <Route path="/students/attendance" element={<UnderConstruction />} />
+            <Route path="/teachers/manage" element={<UnderConstruction />} />
+            <Route path="/teachers/attendance" element={<UnderConstruction />} />
+            <Route path="/courses" element={<UnderConstruction />} />
+            <Route path="/settings" element={<UnderConstruction />} />
           </Route>
         </Routes>
       </Router>

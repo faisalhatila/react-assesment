@@ -22,7 +22,8 @@ const Sidebar = ({ isHamburgerToggled, handleToggle }) => {
     {
       id: 2,
       label: 'Students',
-      route: '/students',
+      route: '/students/manage',
+      parent: 'students',
       Icon: <FaUser size={16} className="w-[25px]" />,
       children: [
         {
@@ -38,7 +39,8 @@ const Sidebar = ({ isHamburgerToggled, handleToggle }) => {
     {
       id: 3,
       label: 'Teachers',
-      route: '/teachers',
+      route: '/teachers/manage',
+      parent: 'teachers',
       Icon: <FaChalkboardTeacher size={18} className="w-[25px]" />,
       children: [
         {
@@ -72,7 +74,12 @@ const Sidebar = ({ isHamburgerToggled, handleToggle }) => {
     }));
   };
 
-  const isRouteActive = (route) => location.pathname === route;
+  const isRouteActive = (route, parent) => {
+    // console.log({ route, parent });
+    return location.pathname === route || location.pathname.includes(parent);
+  };
+
+  console.log({ location });
 
   const isChildRouteActive = (children) =>
     children?.some((child) => location.pathname === child.route);
@@ -80,71 +87,76 @@ const Sidebar = ({ isHamburgerToggled, handleToggle }) => {
   // Adjust width with transition based on isHamburgerToggled
   const sidebarWidth = isHamburgerToggled ? 'w-[80px]' : 'w-[225px]';
   const textVisibility = isHamburgerToggled ? 'opacity-0' : 'opacity-100'; // Hide text when collapsed
-
+  // console.log({ location });
   return (
     <aside
       className={`${sidebarWidth} min-h-[100vh] fixed bg-darkprimary text-white pt-[20px] pr-[20px] mt-[96px] transition-all duration-300 ease-in-out border-r-[2px] border-r-border`}
     >
-      {sidebarItems.map(({ id, label, Icon, route, children }, index) => (
-        <div className="flex flex-col mb-[20px]" key={index}>
-          <div
-            className={`flex items-center justify-between pr-[10px] py-[7px] px-[20px] rounded-r-[20px] cursor-pointer ${
-              isRouteActive(route) ? 'bg-secondary' : ''
-            } ${isChildRouteActive(children) ? 'text-secondary' : ''}`}
-            onClick={() => {
-              if (children && isHamburgerToggled) {
-                // Call handleToggle if isHamburgerToggled is true before toggling the item
-                handleToggle();
-              }
-              if (children) {
-                toggleItem(id);
-              }
-            }}
-          >
-            <div className="flex items-center">
-              {Icon}
-              <Link to={route}>
-                {/* Only show text when sidebar is expanded */}
-                <ThemedText
-                  className={`ml-[15px] font-urbanist text-[15px] font-bold transition-opacity duration-300 ${textVisibility}`}
-                >
-                  {label}
-                </ThemedText>
-              </Link>
+      {sidebarItems.map(
+        ({ id, label, Icon, route, children, parent }, index) => (
+          <div className="flex flex-col mb-[20px]" key={index}>
+            <div
+              className={`flex items-center justify-between pr-[10px] py-[7px] px-[20px] rounded-r-[20px] cursor-pointer ${
+                isRouteActive(route, children && parent) ? 'bg-secondary' : ''
+              } ${isChildRouteActive(children) ? 'text-white' : ''}`}
+              onClick={() => {
+                if (children && isHamburgerToggled) {
+                  // Call handleToggle if isHamburgerToggled is true before toggling the item
+                  handleToggle();
+                }
+                if (children) {
+                  toggleItem(id);
+                }
+              }}
+            >
+              <div className="flex items-center">
+                {Icon}
+                <Link to={route}>
+                  {/* Only show text when sidebar is expanded */}
+                  <ThemedText
+                    className={`ml-[15px] font-urbanist text-[15px] font-bold transition-opacity duration-300 ${textVisibility}`}
+                  >
+                    {label}
+                  </ThemedText>
+                </Link>
+              </div>
+              {children && (
+                <ThemedIcon
+                  Icon={FaChevronDown}
+                  size={14}
+                  className={`transition-transform duration-300 ${
+                    expandedItems[id] ? 'rotate-180' : ''
+                  }`}
+                />
+              )}
             </div>
-            {children && (
-              <ThemedIcon
-                Icon={FaChevronDown}
-                size={14}
-                className={`transition-transform duration-300 ${
-                  expandedItems[id] ? 'rotate-180' : ''
-                }`}
-              />
-            )}
+            <div
+              className={`transition-max-height duration-300 ease-in-out overflow-hidden ml-[47px] ${
+                expandedItems[id] ? 'max-h-[500px]' : 'max-h-0'
+              }`}
+            >
+              {children &&
+                !isHamburgerToggled &&
+                children.map((child, childIndex) => (
+                  <div key={childIndex} className="ml-[15px] mt-[8px]">
+                    <Link to={child?.route}>
+                      <ThemedText
+                        className={`font-urbanist text-[13px] font-bold ${
+                          // isRouteActive(child?.route) ? 'text-secondary' : ''
+                          child?.route === location.pathname
+                            ? '!text-secondary'
+                            : 'text-white'
+                        }`}
+                      >
+                        {child?.title}
+                      </ThemedText>
+                    </Link>
+                  </div>
+                ))}
+            </div>
           </div>
-          <div
-            className={`transition-max-height duration-300 ease-in-out overflow-hidden ml-[47px] ${
-              expandedItems[id] ? 'max-h-[500px]' : 'max-h-0'
-            }`}
-          >
-            {children &&
-              !isHamburgerToggled &&
-              children.map(({ route, title }, childIndex) => (
-                <div key={childIndex} className="ml-[15px] mt-[8px]">
-                  <Link to={route}>
-                    <ThemedText
-                      className={`font-urbanist text-[13px] font-bold ${
-                        isRouteActive(route) ? 'text-secondary' : ''
-                      }`}
-                    >
-                      {title}
-                    </ThemedText>
-                  </Link>
-                </div>
-              ))}
-          </div>
-        </div>
-      ))}
+        )
+      )}
     </aside>
   );
 };
