@@ -72,10 +72,10 @@ code {
   width: calc(100vw - 80px);
 }
 .opened-menu-main {
-  width: calc(100vw - 235px);
+  width: calc(100vw - 225px);
 }
 .main-height {
-  min-height: calc(100vh - 50px);
+  min-height: calc(100vh - 96px);
 }
 
 @media only screen and (max-width: 768px) {
