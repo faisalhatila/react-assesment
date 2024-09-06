@@ -101,9 +101,7 @@ const Sidebar = ({ isHamburgerToggled, handleToggle }) => {
           <div className="flex flex-col mb-[20px]" key={index}>
             <div
               className={`md:flex items-center justify-between pr-[10px] py-[7px] px-[20px] rounded-r-[20px] cursor-pointer ${
-                isRouteActive(route, children && parent)
-                  ? `${!isHamburgerToggled && 'bg-secondary'}`
-                  : ''
+                isRouteActive(route, children && parent) ? `bg-secondary` : ''
               } ${isChildRouteActive(children) ? 'text-white' : ''} ${
                 !isHamburgerToggled ? 'flex' : 'hidden'
               }`}
