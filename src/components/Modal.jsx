@@ -15,12 +15,18 @@ const Modal = ({ position, onClose, data, updateData, notify, deleteData }) => {
 
   useEffect(() => {
     const modal = modalRef.current;
+    const width = window.innerWidth;
+    console.log({ width });
     if (modal) {
       modal.style.transform = `translate(${position.x - 225}px, ${
         position.y - 125
       }px) scale(0)`;
       setTimeout(() => {
-        modal.style.transform = `translate(calc(50vw - 175px), calc(50vh - 125px)) scale(1)`;
+        if (width < 786) {
+          modal.style.transform = `translate(0px, 0px) scale(1)`;
+        } else {
+          modal.style.transform = `translate(calc(50vw - 175px), calc(50vh - 125px)) scale(1)`;
+        }
       }, 0);
     }
   }, [position]);
@@ -55,6 +61,32 @@ const Modal = ({ position, onClose, data, updateData, notify, deleteData }) => {
                 />
               </div>
               <div className="flex flex-col md:flex-row flex-1">
+                <div className="flex flex-col ml-5 flex-1">
+                  {['name', 'section', 'majorSubject', 'city'].map((field) => (
+                    <div className="flex items-center mb-2" key={field}>
+                      <ThemedInput
+                        onChange={handleChange}
+                        name={field}
+                        value={modalData?.[field]}
+                        placeholder={capitalizeFirstLetter(field)}
+                      />
+                    </div>
+                  ))}
+                </div>
+                <div className="flex flex-col ml-5 flex-1">
+                  {['class', 'enrollmentNumber', 'attendance', 'country'].map(
+                    (field) => (
+                      <div className="flex items-center mb-2" key={field}>
+                        <ThemedInput
+                          onChange={handleChange}
+                          name={field}
+                          value={modalData?.[field]}
+                          placeholder={capitalizeFirstLetter(field)}
+                        />
+                      </div>
+                    )
+                  )}
+                </div>
                 <div className="flex flex-col ml-5 flex-1">
                   {['name', 'section', 'majorSubject', 'city'].map((field) => (
                     <div className="flex items-center mb-2" key={field}>
@@ -235,9 +267,12 @@ const Modal = ({ position, onClose, data, updateData, notify, deleteData }) => {
     string.charAt(0).toUpperCase() + string.slice(1);
 
   return (
-    <div className="modal-overlay" onClick={handleClose}>
+    <div
+      className="modal-overlay flex items-center justify-center md:block"
+      onClick={handleClose}
+    >
       <div
-        className="modal-content flex items-center justify-center md:block bg-darkprimary md:min-w-[450px] md:min-h-[250px]"
+        className="modal-content max-h-[100vh] overflow-y-auto bg-darkprimary h-auto w-auto !md:min-w-[450px] !md:min-h-[250px]"
         ref={modalRef}
         onClick={(e) => e.stopPropagation()}
       >
