@@ -117,16 +117,6 @@ const Dashboard = () => {
 
   return (
     <div
-      style={
-        {
-          // width: isHamburgerToggled
-          //   ? // ? 'calc(100vw - 95px)'
-          //     // : 'calc(100vw - 240px)',
-          //     'calc(100vw)'
-          //   : 'calc(100vw)',
-          // minHeight: 'calc(100vh - 50px)',
-        }
-      }
       className={`${
         isHamburgerToggled ? 'closed-menu-main' : 'opened-menu-main'
       } transition-all duration-300 ease-in-out bg-darkprimary p-5 ${
