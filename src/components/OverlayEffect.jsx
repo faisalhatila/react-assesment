@@ -4,7 +4,7 @@ import ThemedText from './ui-elements/ThemedText';
 const OverlayEffect = ({ data, onClick, isLoading, error }) => {
   return (
     <>
-      <div className="grid grid-cols-2 md:grid-cols-6 lg:grid-cols-10 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-10 gap-4">
         {isLoading ? (
           <p>Loading...</p>
         ) : error ? (
@@ -32,7 +32,7 @@ const OverlayEffect = ({ data, onClick, isLoading, error }) => {
 
       {/* Overlay effect */}
       <div
-        className="grid grid-cols-2 md:grid-cols-6 lg:grid-cols-10 gap-4 select-none pointer-events-none absolute inset-0"
+        className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-10 gap-4 select-none pointer-events-none absolute inset-0"
         style={{
           opacity: 'var(--opacity, 0)',
           mask: `

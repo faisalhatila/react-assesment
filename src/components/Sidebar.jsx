@@ -115,17 +115,17 @@ const Sidebar = ({ isHamburgerToggled, handleToggle }) => {
                 }
               }}
             >
-              <div className="flex items-center">
-                {Icon}
-                <Link to={route}>
+              <Link to={route}>
+                <div className="flex items-center">
+                  {Icon}
                   {/* Only show text when sidebar is expanded */}
                   <ThemedText
                     className={`ml-[15px] font-urbanist text-[15px] font-bold transition-opacity duration-300 ${textVisibility}`}
                   >
                     {label}
                   </ThemedText>
-                </Link>
-              </div>
+                </div>
+              </Link>
               {children && (
                 <ThemedIcon
                   Icon={FaChevronDown}

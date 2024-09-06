@@ -69,10 +69,10 @@ code {
   background: #ffd928;
 }
 .closed-menu-main {
-  width: calc(100vw - 95px);
+  width: calc(100vw - 80px);
 }
 .opened-menu-main {
-  width: calc(100vw - 240px);
+  width: calc(100vw - 235px);
 }
 .main-height {
   min-height: calc(100vh - 50px);

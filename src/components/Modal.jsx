@@ -54,12 +54,12 @@ const Modal = ({ position, onClose, data, updateData, notify, deleteData }) => {
           </div>
           <div className="p-5">
             <div className="flex">
-              <div className="w-[55px] h-[55px] border-2 border-secondary flex justify-center items-center rounded-full overflow-hidden">
+              {/* <div className="w-[55px] h-[55px] border-2 border-secondary flex justify-center items-center rounded-full overflow-hidden">
                 <img
                   src={data?.imageUrl}
                   className="max-w-[80%] rounded-full"
                 />
-              </div>
+              </div> */}
               <div className="flex flex-col md:flex-row flex-1">
                 <div className="flex flex-col ml-5 flex-1">
                   {['name', 'section', 'majorSubject', 'city'].map((field) => (

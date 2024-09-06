@@ -15,7 +15,7 @@ const ProtectedLayout = () => {
         isHamburgerToggled={isHamburgerToggled}
         handleToggle={handleHamburgerClick}
       />
-      <div className="flex flex-col flex-grow">
+      <div className="flex flex-col flex-grow overflow-x-hidden">
         <Sidebar
           isHamburgerToggled={isHamburgerToggled}
           handleToggle={handleHamburgerClick}
