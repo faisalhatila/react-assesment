@@ -60,20 +60,24 @@ import Profile from './pages/private/Profile';
 import ProtectedLayout from './components/ProtectedLayout';
 import PrivateRoute from './routes/PrivateRoute';
 import PublicRoute from './routes/PublicRoute';
+import ErrorBoundary from './components/ErrorBoundry';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
-        <Route path="/signup" element={<PublicRoute><Signup /></PublicRoute>} />
+    <ErrorBoundary>
+      <Router>
+        <Routes>
+          <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+          <Route path="/signup" element={<PublicRoute><Signup /></PublicRoute>} />
 
-        <Route path="/" element={<PrivateRoute><ProtectedLayout /></PrivateRoute>}>
-          <Route path="" element={<Dashboard />} />
-          <Route path="profile" element={<Profile />} />
-        </Route>
-      </Routes>
-    </Router>
+          <Route path="/" element={<PrivateRoute><ProtectedLayout /></PrivateRoute>}>
+            <Route path="" element={<Dashboard />} />
+            <Route path="profile" element={<Profile />} />
+          </Route>
+        </Routes>
+      </Router>
+    </ErrorBoundary>
   );
 };
 
