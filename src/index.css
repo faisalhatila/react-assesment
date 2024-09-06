@@ -58,3 +58,13 @@ code {
   font-size: 1.5rem;
   cursor: pointer;
 }
+.notification-avatar::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffd928;
+}

@@ -7,25 +7,36 @@ import Logo from '../assets/img/Logo.png';
 import UserAvatar from '../assets/img/User1Avatar.svg';
 import ThemedText from './ui-elements/ThemedText';
 import ThemedIcon from './ui-elements/ThemedIcon';
+import Notifications from './Notifications';
 
 const Header = ({ isHamburgerToggled, handleToggle }) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  //   const [isHamburgerToggled, setHamburgerToggled] = useState(false);
-
+  const [isOpenNotification, setIsOpenNotification] = useState(false);
   const dropdownRef = useRef(null);
+  const notiRef = useRef(null);
 
   const handleAvatarClick = () => {
     setDropdownOpen((ps) => !ps);
   };
-
-  //   const handleHamburgerClick = () => {
-  //     setHamburgerToggled((prev) => !prev);
-  //   };
+  const handleClickNotification = () => {
+    setIsOpenNotification((ps) => !ps);
+  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (notiRef.current && !notiRef.current.contains(event.target)) {
+        setIsOpenNotification(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -72,9 +83,23 @@ const Header = ({ isHamburgerToggled, handleToggle }) => {
               placeholder="Search Student"
             />
           </div>
-          <div className="w-[40px] h-[40px] rounded-[50%] bg-secondary flex items-center justify-center relative mx-[15px]">
+          <div
+            onClick={handleClickNotification}
+            className="w-[40px] h-[40px] rounded-[50%] bg-secondary flex items-center justify-center relative mx-[15px]"
+            ref={notiRef}
+          >
             <span className="bg-pending w-[8px] h-[8px] absolute top-[10px] right-[10px] rounded-[50%]" />
             <ThemedIcon Icon={IoIosNotificationsOutline} size={30} />
+
+            <div
+              className={` transition-all duration-300 ease-in-out ${
+                isOpenNotification
+                  ? 'opacity-100'
+                  : 'opacity-0 pointer-events-none'
+              }`}
+            >
+              <Notifications />
+            </div>
           </div>
           <div
             className="border-[2px] border-secondary border-solid p-[5px] rounded-[50%] cursor-pointer"
