@@ -87,32 +87,6 @@ const Modal = ({ position, onClose, data, updateData, notify, deleteData }) => {
                     )
                   )}
                 </div>
-                <div className="flex flex-col ml-5 flex-1">
-                  {['name', 'section', 'majorSubject', 'city'].map((field) => (
-                    <div className="flex items-center mb-2" key={field}>
-                      <ThemedInput
-                        onChange={handleChange}
-                        name={field}
-                        value={modalData?.[field]}
-                        placeholder={capitalizeFirstLetter(field)}
-                      />
-                    </div>
-                  ))}
-                </div>
-                <div className="flex flex-col ml-5 flex-1">
-                  {['class', 'enrollmentNumber', 'attendance', 'country'].map(
-                    (field) => (
-                      <div className="flex items-center mb-2" key={field}>
-                        <ThemedInput
-                          onChange={handleChange}
-                          name={field}
-                          value={modalData?.[field]}
-                          placeholder={capitalizeFirstLetter(field)}
-                        />
-                      </div>
-                    )
-                  )}
-                </div>
               </div>
             </div>
             <div className="flex items-center gap-4 mt-5">

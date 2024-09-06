@@ -17,7 +17,7 @@ const OverlayEffect = ({ data, onClick, isLoading, error }) => {
               style={{ aspectRatio: '1 / 1' }}
               onClick={(e) => onClick(e, index, item)}
             >
-              <div className="w-[80px]">
+              <div className="w-[60px] md:w-[60px]">
                 <img src={item.imageUrl} className="max-[100%]" />
               </div>
               <div className="inset-0 flex items-center justify-center text-white">
@@ -55,7 +55,7 @@ const OverlayEffect = ({ data, onClick, isLoading, error }) => {
             className="flex items-center flex-col justify-center cursor-pointer relative overflow-hidden border border-1 border-secondary text-center rounded-xl transition-transform duration-500"
             style={{ aspectRatio: '1 / 1' }}
           >
-            <div className="w-[80px]">
+            <div className="w-[60px] md:w-[60px]">
               <img src={item.imageUrl} className="max-[100%]" />
             </div>
             <div className="inset-0 flex items-center justify-center text-white">
