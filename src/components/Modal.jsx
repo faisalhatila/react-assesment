@@ -2,9 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import ThemedText from './ui-elements/ThemedText';
 import UserAvatar from '../assets/img/User1Avatar.svg';
 
-const Modal = ({ position, onClose }) => {
+const Modal = ({ position, onClose, data }) => {
   const modalRef = useRef(null);
-  console.log({ position });
+  console.log({ position, data });
 
   useEffect(() => {
     const modal = modalRef.current;
@@ -50,63 +50,78 @@ const Modal = ({ position, onClose }) => {
           </div>
           <div className="p-5">
             <div className="flex">
-              <div>
-                <img src={UserAvatar} />
+              <div className="w-[55px] h-[55px] border-2 border-secondary flex justify-center items-center rounded-[50%] overflow-hidden">
+                <img
+                  src={data?.imageUrl}
+                  className="max-w-[80%] rounded-[50%]"
+                />
               </div>
               <div className="flex flex-1">
                 <div className="flex flex-col ml-5 flex-1">
                   <div className="flex items-center mb-2">
-                    <ThemedText className="font-urbanist">Name:</ThemedText>
-                    <ThemedText className="font-urbanist font-500 ml-2">
-                      Faisal Hanif
+                    <ThemedText className="text-[14px] font-urbanist">
+                      Name:
+                    </ThemedText>
+                    <ThemedText className="text-[14px] font-urbanist font-500 ml-2">
+                      {data?.name}
                     </ThemedText>
                   </div>
                   <div className="flex items-center mb-2">
-                    <ThemedText className="font-urbanist">Section:</ThemedText>
-                    <ThemedText className="font-urbanist font-500 ml-2">
-                      A
+                    <ThemedText className="text-[14px] font-urbanist">
+                      Section:
+                    </ThemedText>
+                    <ThemedText className="text-[14px] font-urbanist font-500 ml-2">
+                      {data?.section}
                     </ThemedText>
                   </div>
                   <div className="flex items-center mb-2">
-                    <ThemedText className="font-urbanist">Major:</ThemedText>
-                    <ThemedText className="font-urbanist font-500 ml-2">
-                      Science
+                    <ThemedText className="text-[14px] font-urbanist">
+                      Major:
+                    </ThemedText>
+                    <ThemedText className="text-[14px] font-urbanist font-500 ml-2">
+                      {data?.majorSubject}
                     </ThemedText>
                   </div>
                   <div className="flex items-center mb-2">
-                    <ThemedText className="font-urbanist">Address:</ThemedText>
-                    <ThemedText className="font-urbanist font-500 ml-2">
-                      Karachi
+                    <ThemedText className="text-[14px] font-urbanist">
+                      Address:
+                    </ThemedText>
+                    <ThemedText className="text-[14px] font-urbanist font-500 ml-2">
+                      {data?.city}
                     </ThemedText>
                   </div>
                 </div>
                 <div className="flex flex-col ml-5 flex-1">
                   <div className="flex items-center mb-2">
-                    <ThemedText className="font-urbanist">Class:</ThemedText>
-                    <ThemedText className="font-urbanist font-500 ml-2">
+                    <ThemedText className="text-[14px] font-urbanist">
+                      Class:
+                    </ThemedText>
+                    <ThemedText className="text-[14px] font-urbanist font-500 ml-2">
                       10th
                     </ThemedText>
                   </div>
                   <div className="flex items-center mb-2">
-                    <ThemedText className="font-urbanist">
+                    <ThemedText className="text-[14px] font-urbanist">
                       Identity N0:
                     </ThemedText>
-                    <ThemedText className="font-urbanist font-500 ml-2">
-                      4560329
+                    <ThemedText className="text-[14px] font-urbanist font-500 ml-2">
+                      {data?.enrollmentNumber}
                     </ThemedText>
                   </div>
                   <div className="flex items-center mb-2">
-                    <ThemedText className="font-urbanist">
+                    <ThemedText className="text-[14px] font-urbanist">
                       Attendance:
                     </ThemedText>
-                    <ThemedText className="font-urbanist font-500 ml-2">
-                      95%
+                    <ThemedText className="text-[14px] font-urbanist font-500 ml-2">
+                      {`${data?.attendance}%`}
                     </ThemedText>
                   </div>
                   <div className="flex items-center mb-2">
-                    <ThemedText className="font-urbanist">Country:</ThemedText>
-                    <ThemedText className="font-urbanist font-500 ml-2">
-                      Pakistan
+                    <ThemedText className="text-[14px] font-urbanist">
+                      Country:
+                    </ThemedText>
+                    <ThemedText className="text-[14px] font-urbanist font-500 ml-2">
+                      {data?.country}
                     </ThemedText>
                   </div>
                 </div>
