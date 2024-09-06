@@ -5,7 +5,7 @@ import Footer from './Footer';
 import { Outlet } from 'react-router-dom';
 
 const ProtectedLayout = () => {
-  const [isHamburgerToggled, setHamburgerToggled] = useState(false);
+  const [isHamburgerToggled, setHamburgerToggled] = useState(true);
   const handleHamburgerClick = () => {
     setHamburgerToggled((prev) => !prev);
   };

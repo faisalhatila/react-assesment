@@ -117,17 +117,21 @@ const Dashboard = () => {
 
   return (
     <div
-      style={{
-        width: isHamburgerToggled
-          ? // ? 'calc(100vw - 95px)'
-            // : 'calc(100vw - 240px)',
-            'calc(100vw)'
-          : 'calc(100vw)',
-        minHeight: 'calc(100vh - 50px)',
-      }}
-      className={`transition-all duration-300 ease-in-out bg-darkprimary p-5 ${
+      style={
+        {
+          // width: isHamburgerToggled
+          //   ? // ? 'calc(100vw - 95px)'
+          //     // : 'calc(100vw - 240px)',
+          //     'calc(100vw)'
+          //   : 'calc(100vw)',
+          // minHeight: 'calc(100vh - 50px)',
+        }
+      }
+      className={`${
+        isHamburgerToggled ? 'closed-menu-main' : 'opened-menu-main'
+      } transition-all duration-300 ease-in-out bg-darkprimary p-5 ${
         isHamburgerToggled ? 'md:ml-[80px]' : 'md:ml-[225px]'
-      }  mt-[96px] text-white`}
+      }  mt-[96px] text-white main-height`}
     >
       <ToastContainer id="myContainer" />
       <div className="my-4 border-border border-2 rounded-[8px] p-5 flex justify-between min-h-[200px]">

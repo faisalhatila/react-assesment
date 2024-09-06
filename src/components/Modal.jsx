@@ -54,7 +54,7 @@ const Modal = ({ position, onClose, data, updateData, notify, deleteData }) => {
                   className="max-w-[80%] rounded-full"
                 />
               </div>
-              <div className="flex flex-1">
+              <div className="flex flex-col md:flex-row flex-1">
                 <div className="flex flex-col ml-5 flex-1">
                   {['name', 'section', 'majorSubject', 'city'].map((field) => (
                     <div className="flex items-center mb-2" key={field}>
@@ -174,7 +174,7 @@ const Modal = ({ position, onClose, data, updateData, notify, deleteData }) => {
             <div className="w-[55px] h-[55px] border-2 border-secondary flex justify-center items-center rounded-full overflow-hidden">
               <img src={data?.imageUrl} className="max-w-[80%] rounded-full" />
             </div>
-            <div className="flex flex-1">
+            <div className="flex flex-col md:flex-row flex-1">
               <div className="flex flex-col ml-5 flex-1">
                 {['name', 'section', 'majorSubject', 'city'].map((field) => (
                   <div className="flex items-center mb-2" key={field}>
@@ -237,7 +237,7 @@ const Modal = ({ position, onClose, data, updateData, notify, deleteData }) => {
   return (
     <div className="modal-overlay" onClick={handleClose}>
       <div
-        className="modal-content bg-darkprimary min-w-[450px] min-h-[250px]"
+        className="modal-content flex items-center justify-center md:block bg-darkprimary md:min-w-[450px] md:min-h-[250px]"
         ref={modalRef}
         onClick={(e) => e.stopPropagation()}
       >

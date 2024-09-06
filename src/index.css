@@ -68,3 +68,19 @@ code {
   border-radius: 50%;
   background: #ffd928;
 }
+.closed-menu-main {
+  width: calc(100vw - 95px);
+}
+.opened-menu-main {
+  width: calc(100vw - 240px);
+}
+.main-height {
+  min-height: calc(100vh - 50px);
+}
+
+@media only screen and (max-width: 768px) {
+  .closed-menu-main,
+  .opened-menu-main {
+    width: 100vw;
+  }
+}
