@@ -35,7 +35,7 @@ const Header = ({ isHamburgerToggled, handleToggle }) => {
   }, []);
 
   return (
-    <header className="bg-darkprimary border-b-[2px] border-b-border text-white p-[20px] flex items-center fixed w-[100%]">
+    <header className="bg-darkprimary border-b-[2px] border-b-border text-white p-[20px] flex items-center fixed w-[100%] h-[96px] z-50">
       <div
         className={`transition-all duration-300 ease-in-out ${
           isHamburgerToggled ? 'w-[80px]' : 'w-[200px]'

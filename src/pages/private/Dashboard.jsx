@@ -54,9 +54,9 @@ const Dashboard = () => {
           ? 'calc(100vw - 95px)'
           : 'calc(100vw - 240px)',
       }}
-      className={`transition-all duration-300 ease-in-out bg-darkprimary p-5 w-[calc(100vw - 207px)] ${
+      className={`transition-all duration-300 ease-in-out bg-darkprimary p-5 ${
         isHamburgerToggled ? 'ml-[80px]' : 'ml-[225px]'
-      } min-h-screen mt-[92px] text-white`}
+      } min-h-screen mt-[96px] text-white`}
     >
       <h1 className="text-2xl font-bold mb-6">Dashboard</h1>
       <div className="relative" ref={cardsContainer}>
