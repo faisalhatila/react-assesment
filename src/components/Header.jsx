@@ -3,7 +3,7 @@ import { GiHamburgerMenu, GiMagicPortal } from 'react-icons/gi';
 import { CiSearch } from 'react-icons/ci';
 import { IoIosNotificationsOutline } from 'react-icons/io';
 
-import Logo from '../assets/img/Logo.png';
+import Logo from '../assets/img/newLogo.png';
 import UserAvatar from '../assets/img/User1Avatar.svg';
 import ThemedText from './ui-elements/ThemedText';
 import ThemedIcon from './ui-elements/ThemedIcon';
@@ -72,7 +72,7 @@ const Header = ({ isHamburgerToggled, handleToggle }) => {
         <div className="flex items-center">
           <ThemedIcon Icon={GiMagicPortal} />
           <ThemedText className="font-urbanist font-bold text-[18px] ml-2">
-            Student Dashboard
+            Student Dashboard Demo
           </ThemedText>
         </div>
         <div className="flex items-center">
