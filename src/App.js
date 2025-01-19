@@ -63,6 +63,8 @@ import PrivateRoute from './routes/PrivateRoute';
 import PublicRoute from './routes/PublicRoute';
 import ErrorBoundary from './components/ErrorBoundry';
 import 'react-toastify/dist/ReactToastify.css';
+import ManageStudents from './pages/private/ManageStudents';
+// import './App.css';
 
 const App = () => {
   return (
@@ -74,7 +76,7 @@ const App = () => {
 
           <Route path="/" element={<PrivateRoute><ProtectedLayout /></PrivateRoute>}>
             <Route path="" element={<Dashboard />} />
-            <Route path="/students/manage" element={<UnderConstruction />} />
+            <Route path="/students/manage" element={<ManageStudents />} />
             <Route path="/students/attendance" element={<UnderConstruction />} />
             <Route path="/teachers/manage" element={<UnderConstruction />} />
             <Route path="/teachers/attendance" element={<UnderConstruction />} />

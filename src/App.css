@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 * {
-  background: #151515;
+  /* background: #151515; */
 }
 /* 
 .App {
@@ -44,3 +44,34 @@
     transform: rotate(360deg);
   }
 } */
+
+.ag-header-cell-resize::after {
+  display: none;
+}
+/* Custom scrollbar styles */
+.ag-theme-quartz .ag-body-horizontal-scroll-viewport::-webkit-scrollbar,
+.ag-theme-quartz .ag-body-vertical-scroll-viewport::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.ag-theme-quartz .ag-body-horizontal-scroll-viewport::-webkit-scrollbar-track,
+.ag-theme-quartz .ag-body-vertical-scroll-viewport::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.ag-theme-quartz .ag-body-horizontal-scroll-viewport::-webkit-scrollbar-thumb,
+.ag-theme-quartz .ag-body-vertical-scroll-viewport::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.ag-theme-quartz .ag-body-horizontal-scroll-viewport::-webkit-scrollbar-thumb:hover,
+.ag-theme-quartz .ag-body-vertical-scroll-viewport::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.ag-watermark {
+  display: none !important;
+}
+
