@@ -77,7 +77,7 @@ const App = () => {
           <Route path="/" element={<PrivateRoute><ProtectedLayout /></PrivateRoute>}>
             <Route path="" element={<Dashboard />} />
             <Route path="/students/manage" element={<ManageStudents />} />
-            <Route path="/students/attendance" element={<UnderConstruction />} />
+            <Route path="/students/attendance" element={<ManageStudents />} />
             <Route path="/teachers/manage" element={<UnderConstruction />} />
             <Route path="/teachers/attendance" element={<UnderConstruction />} />
             <Route path="/courses" element={<UnderConstruction />} />

@@ -16,7 +16,7 @@ const ManageStudents = () => {
   const queryClient = useQueryClient();
   const { data, isLoading, error } = useQuery({
     queryKey: ['Students', 0, 10],
-    queryFn: () => fetchData(0, 5), // Fix the query function here
+    queryFn: () => fetchData(0, 20), // Fix the query function here
     staleTime: 10000,
   });
   return (
@@ -25,55 +25,16 @@ const ManageStudents = () => {
         isHamburgerToggled ? 'closed-menu-main' : 'opened-menu-main'
       } transition-all duration-300 ease-in-out bg-darkprimary p-5 ${
         isHamburgerToggled ? 'md:ml-[80px]' : 'md:ml-[225px]'
-      }  mt-[96px] text-white main-height flex `}
+      }  mt-[96px] text-white main-height flex flex-col`}
     >
+      <div className="mb-5">
+        <h1 className='text-4xl font-bold'>Manage Students</h1>
+      </div>
       <AgGridTable
         column={['id','image', 'name', 'country', 'city']}
         rows={data}
-        // rows={[
-        //   {
-        //     id: 1,
-        //     name: 'Faisal',
-        //     age: '30',
-        //     contact: '+923073641656',
-        //   },
-        //   {
-        //     id: 1,
-        //     name: 'Faisal',
-        //     age: '30',
-        //     contact: '+923073641656',
-        //   },
-        //   {
-        //     id: 1,
-        //     name: 'Faisal',
-        //     age: '30',
-        //     contact: '+923073641656',
-        //   },
-        //   {
-        //     id: 1,
-        //     name: 'Faisal',
-        //     age: '30',
-        //     contact: '+923073641656',
-        //   },
-        //   {
-        //     id: 1,
-        //     name: 'Faisal',
-        //     age: '30',
-        //     contact: '+923073641656',
-        //   },
-        //   {
-        //     id: 1,
-        //     name: 'Faisal',
-        //     age: '30',
-        //     contact: '+923073641656',
-        //   },
-        //   {
-        //     id: 1,
-        //     name: 'Faisal',
-        //     age: '30',
-        //     contact: '+923073641656',
-        //   },
-        // ]}
+        isLoading={isLoading}
+        error={error}
       />
     </div>
   );
